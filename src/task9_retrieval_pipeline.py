@@ -12,10 +12,16 @@ Logic:
     5. Return top_k results
 """
 
-from task5_semantic_search import semantic_search
-from task6_lexical_search import lexical_search
-from task7_reranking import rerank, rerank_rrf
-from task8_pageindex_vectorless import pageindex_search
+try:
+    from .task5_semantic_search import semantic_search
+    from .task6_lexical_search import lexical_search
+    from .task7_reranking import rerank, rerank_rrf
+    from .task8_pageindex_vectorless import pageindex_search
+except ImportError:
+    from task5_semantic_search import semantic_search
+    from task6_lexical_search import lexical_search
+    from task7_reranking import rerank, rerank_rrf
+    from task8_pageindex_vectorless import pageindex_search
 
 
 # =============================================================================

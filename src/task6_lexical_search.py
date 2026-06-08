@@ -89,7 +89,10 @@ def load_corpus_from_task4_chunks() -> list[dict]:
     Tạo corpus BM25 bằng cách reuse load_documents() và chunk_documents()
     từ Task 4. Như vậy BM25 search và semantic search đều làm việc ở chunk level.
     """
-    from task4_chunking_indexing import load_documents, chunk_documents
+    try:
+        from .task4_chunking_indexing import load_documents, chunk_documents
+    except ImportError:
+        from task4_chunking_indexing import load_documents, chunk_documents
 
     documents = load_documents()
     chunks = chunk_documents(documents)
