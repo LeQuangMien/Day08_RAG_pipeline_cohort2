@@ -14,12 +14,46 @@ Hướng dẫn:
 """
 
 import json
+import re
 from pathlib import Path
 
 from markitdown import MarkItDown
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 LANDING_DIR = Path(__file__).parent.parent / "data" / "landing"
 OUTPUT_DIR = Path(__file__).parent.parent / "data" / "standardized"
+
+
+def clean_markdown(text: str) -> str:
+    """
+    Chuẩn hóa markdown cơ bản:
+    - Chuẩn hóa newline
+    - Xóa khoảng trắng thừa cuối dòng
+    - Giảm số dòng trống liên tiếp
+    """
+    if not text:
+        return ""
+
+    text = text.replace("\r\n", "\n").replace("\r", "\n")
+    text = "\n".join(line.rstrip() for line in text.split("\n"))
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text.strip()
+
+
+def make_metadata_header(title: str, source: str, doc_type: str, crawled: str | None = None) -> str:
+    """
+    Tạo metadata header thống nhất cho file markdown.
+    Metadata này sẽ hữu ích cho Task 4 khi chunking/indexing.
+    """
+    header = f"# {title or 'Unknown'}\n\n"
+    header += f"**Source:** {source or 'N/A'}\n"
+    header += f"**Type:** {doc_type}\n"
+
+    if crawled:
+        header += f"**Crawled:** {crawled}\n"
+
+    header += "\n---\n\n"
+    return header
 
 
 def convert_legal_docs():
@@ -29,16 +63,42 @@ def convert_legal_docs():
     output_dir.mkdir(parents=True, exist_ok=True)
 
     md = MarkItDown()
+    converted_count = 0
 
-    for filepath in legal_dir.iterdir():
-        if filepath.suffix.lower() in (".pdf", ".docx", ".doc"):
-            print(f"Converting: {filepath.name}")
-            # TODO: Convert và lưu file
-            # result = md.convert(str(filepath))
-            # output_path = output_dir / f"{filepath.stem}.md"
-            # output_path.write_text(result.text_content, encoding="utf-8")
-            # print(f"  ✓ Saved: {output_path}")
-            raise NotImplementedError("Implement convert_legal_docs")
+    for filepath in sorted(legal_dir.iterdir()):
+        if filepath.suffix.lower() not in (".pdf", ".docx", ".doc"):
+            continue
+
+        print(f"Converting legal doc: {filepath.name}")
+
+        try:
+            result = md.convert(str(filepath))
+            content = clean_markdown(result.text_content)
+
+            if not content:
+                print(f"  ⚠ Skipped empty converted content: {filepath.name}")
+                continue
+
+            title = filepath.stem.replace("_", " ")
+            header = make_metadata_header(
+                title=title,
+                source=str(filepath.relative_to(PROJECT_ROOT)),
+                doc_type="legal",
+            )
+
+            output_path = output_dir / f"{filepath.stem}.md"
+            output_path.write_text(header + content, encoding="utf-8")
+
+            converted_count += 1
+            print(f"  ✓ Saved: {output_path}")
+
+        except Exception as e:
+            print(f"  ✗ Failed to convert {filepath.name}: {e}")
+
+    print(f"\nConverted legal documents: {converted_count}")
+
+    if converted_count == 0:
+        raise RuntimeError("No legal documents were converted.") 
 
 
 def convert_news_articles():
@@ -47,22 +107,52 @@ def convert_news_articles():
     output_dir = OUTPUT_DIR / "news"
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    for filepath in news_dir.iterdir():
-        if filepath.suffix.lower() == ".json":
-            print(f"Converting: {filepath.name}")
-            # TODO: Đọc JSON, extract content_markdown, lưu thành .md
-            # data = json.loads(filepath.read_text(encoding="utf-8"))
-            # output_path = output_dir / f"{filepath.stem}.md"
-            #
-            # # Thêm metadata header
-            # header = f"# {data.get('title', 'Unknown')}\n\n"
-            # header += f"**Source:** {data.get('url', 'N/A')}\n"
-            # header += f"**Crawled:** {data.get('date_crawled', 'N/A')}\n\n---\n\n"
-            #
-            # content = header + data.get("content_markdown", "")
-            # output_path.write_text(content, encoding="utf-8")
-            # print(f"  ✓ Saved: {output_path}")
-            raise NotImplementedError("Implement convert_news_articles")
+    if not news_dir.exists():
+        raise FileNotFoundError(f"News input directory not found: {news_dir}")
+
+    converted_count = 0
+
+    for filepath in sorted(news_dir.iterdir()):
+        if filepath.suffix.lower() != ".json":
+            continue
+
+        print(f"Converting news article: {filepath.name}")
+
+        try:
+            data = json.loads(filepath.read_text(encoding="utf-8"))
+
+            title = data.get("title", "Unknown")
+            url = data.get("url", "N/A")
+            crawled = data.get("date_crawled", "N/A")
+            content_markdown = clean_markdown(data.get("content_markdown", ""))
+
+            if not content_markdown:
+                print(f"  ⚠ Skipped empty article content: {filepath.name}")
+                continue
+
+            header = make_metadata_header(
+                title=title,
+                source=url,
+                doc_type="news",
+                crawled=crawled,
+            )
+
+            output_path = output_dir / f"{filepath.stem}.md"
+            output_path.write_text(header + content_markdown, encoding="utf-8")
+
+            converted_count += 1
+            print(f"  ✓ Saved: {output_path}")
+
+        except json.JSONDecodeError as e:
+            print(f"  ✗ Invalid JSON {filepath.name}: {e}")
+
+        except Exception as e:
+            print(f"  ✗ Failed to convert {filepath.name}: {e}")
+
+    print(f"\nConverted news articles: {converted_count}")
+
+    if converted_count == 0:
+        raise RuntimeError("No news articles were converted.")
 
 
 def convert_all():
