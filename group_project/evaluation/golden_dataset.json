@@ -1,17 +1,102 @@
 [
   {
-    "question": "Hình phạt cho tội tàng trữ trái phép chất ma tuý theo Điều 249 Bộ luật Hình sự?",
-    "expected_answer": "Phạt tù từ 1 đến 5 năm đối với trường hợp tàng trữ từ 1g đến dưới 5g heroin hoặc cocaine, hoặc chất ma tuý khác với khối lượng tương đương.",
-    "expected_context": "Bộ luật Hình sự 2015, Điều 249"
+    "question": "Hình phạt cơ bản cho tội tàng trữ trái phép chất ma túy theo Điều 249 Bộ luật Hình sự là gì?",
+    "expected_answer": "Người tàng trữ trái phép chất ma túy mà không nhằm mục đích mua bán, vận chuyển hoặc sản xuất trái phép chất ma túy có thể bị phạt tù từ 01 năm đến 05 năm nếu thuộc các trường hợp được Điều 249 quy định.",
+    "expected_context": "Bộ luật Hình sự 2015 sửa đổi, bổ sung 2017, Điều 249"
   },
   {
-    "question": "Luật Phòng chống ma tuý 2021 quy định những hình thức cai nghiện nào?",
-    "expected_answer": "Cai nghiện tự nguyện tại gia đình, cai nghiện tự nguyện tại cộng đồng, cai nghiện tự nguyện tại cơ sở cai nghiện, và cai nghiện bắt buộc tại cơ sở cai nghiện.",
-    "expected_context": "Luật Phòng chống ma tuý 2021, Chương V"
+    "question": "Ngoài hình phạt tù, người phạm tội tàng trữ trái phép chất ma túy còn có thể chịu hình phạt bổ sung nào?",
+    "expected_answer": "Người phạm tội còn có thể bị phạt tiền, cấm đảm nhiệm chức vụ, cấm hành nghề hoặc làm công việc nhất định, hoặc bị tịch thu một phần hoặc toàn bộ tài sản tùy trường hợp.",
+    "expected_context": "Bộ luật Hình sự 2015 sửa đổi, bổ sung 2017, Điều 249"
   },
   {
-    "question": "Danh mục các chất ma tuý thuộc nhóm I theo quy định pháp luật Việt Nam gồm những chất nào?",
-    "expected_answer": "Nhóm I gồm các chất ma tuý tuyệt đối cấm sử dụng trong y học và đời sống, bao gồm heroin, cocaine, methamphetamine, MDMA (ecstasy), cannabis (cần sa), và các chất tương tự.",
-    "expected_context": "Nghị định 57/2022/NĐ-CP, Phụ lục I"
+    "question": "Tội vận chuyển trái phép chất ma túy được quy định tại điều nào của Bộ luật Hình sự?",
+    "expected_answer": "Tội vận chuyển trái phép chất ma túy được quy định tại Điều 250 của Bộ luật Hình sự.",
+    "expected_context": "Bộ luật Hình sự 2015 sửa đổi, bổ sung 2017, Điều 250"
+  },
+  {
+    "question": "Tội mua bán trái phép chất ma túy được quy định tại điều nào của Bộ luật Hình sự?",
+    "expected_answer": "Tội mua bán trái phép chất ma túy được quy định tại Điều 251 của Bộ luật Hình sự.",
+    "expected_context": "Bộ luật Hình sự 2015 sửa đổi, bổ sung 2017, Điều 251"
+  },
+  {
+    "question": "Tội chiếm đoạt chất ma túy được quy định tại điều nào?",
+    "expected_answer": "Tội chiếm đoạt chất ma túy được quy định tại Điều 252 của Bộ luật Hình sự.",
+    "expected_context": "Bộ luật Hình sự 2015 sửa đổi, bổ sung 2017, Điều 252"
+  },
+  {
+    "question": "Luật Phòng, chống ma túy 2021 điều chỉnh những nhóm vấn đề chính nào?",
+    "expected_answer": "Luật Phòng, chống ma túy 2021 quy định về phòng, chống ma túy; quản lý người sử dụng trái phép chất ma túy; cai nghiện ma túy; quản lý sau cai nghiện; trách nhiệm của cá nhân, gia đình, cơ quan, tổ chức trong phòng, chống ma túy; và quản lý nhà nước, hợp tác quốc tế về phòng, chống ma túy.",
+    "expected_context": "Luật Phòng, chống ma túy 2021, Điều 1"
+  },
+  {
+    "question": "Theo Luật Phòng, chống ma túy 2021, các hành vi nào bị nghiêm cấm liên quan đến chất ma túy?",
+    "expected_answer": "Các hành vi bị nghiêm cấm bao gồm trồng cây có chứa chất ma túy, nghiên cứu/sản xuất/tàng trữ/vận chuyển/mua bán trái phép chất ma túy, chiếm đoạt chất ma túy, sử dụng trái phép chất ma túy, tổ chức hoặc chứa chấp việc sử dụng trái phép chất ma túy, và một số hành vi khác theo luật.",
+    "expected_context": "Luật Phòng, chống ma túy 2021, Điều 5"
+  },
+  {
+    "question": "Luật Phòng, chống ma túy 2021 quy định những hình thức cai nghiện ma túy nào?",
+    "expected_answer": "Luật quy định các hình thức cai nghiện gồm cai nghiện tự nguyện và cai nghiện bắt buộc; việc cai nghiện có thể được thực hiện tại gia đình, cộng đồng, cơ sở cai nghiện hoặc cơ sở cai nghiện bắt buộc tùy trường hợp.",
+    "expected_context": "Luật Phòng, chống ma túy 2021, Chương V"
+  },
+  {
+    "question": "Người sử dụng trái phép chất ma túy có thể bị quản lý như thế nào theo Luật Phòng, chống ma túy 2021?",
+    "expected_answer": "Người sử dụng trái phép chất ma túy có thể bị quản lý, theo dõi, xét nghiệm chất ma túy và áp dụng các biện pháp quản lý phù hợp theo quy định của Luật Phòng, chống ma túy 2021.",
+    "expected_context": "Luật Phòng, chống ma túy 2021, quy định về quản lý người sử dụng trái phép chất ma túy"
+  },
+  {
+    "question": "Nghị định 105/2021/NĐ-CP hướng dẫn nội dung gì liên quan đến Luật Phòng, chống ma túy?",
+    "expected_answer": "Nghị định 105/2021/NĐ-CP quy định chi tiết và hướng dẫn thi hành một số điều của Luật Phòng, chống ma túy, bao gồm cơ chế phối hợp, kiểm soát hoạt động hợp pháp liên quan đến ma túy và quản lý người sử dụng trái phép chất ma túy.",
+    "expected_context": "Nghị định 105/2021/NĐ-CP"
+  },
+  {
+    "question": "Nghị định 57/2022/NĐ-CP được dùng để tra cứu nội dung gì?",
+    "expected_answer": "Nghị định 57/2022/NĐ-CP quy định các danh mục chất ma túy và tiền chất, dùng để xác định các chất thuộc diện quản lý, cấm hoặc kiểm soát theo pháp luật Việt Nam.",
+    "expected_context": "Nghị định 57/2022/NĐ-CP về danh mục chất ma túy và tiền chất"
+  },
+  {
+    "question": "Nhóm I trong danh mục chất ma túy theo Nghị định 57/2022/NĐ-CP có ý nghĩa gì?",
+    "expected_answer": "Nhóm I là nhóm các chất ma túy bị cấm sử dụng trong y học và đời sống xã hội, trừ các trường hợp được cơ quan có thẩm quyền cho phép theo quy định phục vụ nghiên cứu, kiểm nghiệm, giám định hoặc mục đích đặc biệt khác.",
+    "expected_context": "Nghị định 57/2022/NĐ-CP, Phụ lục danh mục chất ma túy"
+  },
+  {
+    "question": "Theo các bài báo đã crawl, những người nổi tiếng nào được nhắc đến trong vụ việc liên quan đến ma túy cuối năm 2024?",
+    "expected_answer": "Các bài báo nhắc đến ca sĩ Chi Dân, người mẫu An Tây và Trúc Phương trong vụ việc liên quan đến ma túy cuối năm 2024.",
+    "expected_context": "article_01.md; article_02.md; article_05.md"
+  },
+  {
+    "question": "Bài báo về chuyên án VN10 cho biết điều gì về Chi Dân và An Tây?",
+    "expected_answer": "Bài báo cho biết Chi Dân và An Tây nằm trong số các bị can liên quan đến chuyên án VN10 và vụ án có số lượng bị can rất lớn.",
+    "expected_context": "article_02.md"
+  },
+  {
+    "question": "Các bài báo trong corpus nhắc đến diễn viên Hữu Tín liên quan đến hành vi nào?",
+    "expected_answer": "Các bài báo nhắc Hữu Tín liên quan đến hành vi tàng trữ trái phép chất ma túy và tổ chức sử dụng trái phép chất ma túy; anh bị tuyên phạt tù trong vụ án này.",
+    "expected_context": "article_05.md; article_06.md"
+  },
+  {
+    "question": "Nhà thiết kế Công Trí được nhắc đến trong corpus trong bối cảnh nào?",
+    "expected_answer": "Công Trí được nhắc đến trong bối cảnh người nổi tiếng liên quan đến ma túy và quan điểm rằng người nổi tiếng cũng là công dân, nếu vi phạm pháp luật thì vẫn bị xử lý nghiêm.",
+    "expected_context": "article_04.md; article_08.md"
+  },
+  {
+    "question": "Các bài báo nhận định gì về trách nhiệm xã hội của nghệ sĩ khi vướng vào ma túy?",
+    "expected_answer": "Các bài báo cho rằng nghệ sĩ và người nổi tiếng có ảnh hưởng xã hội nên cần giữ ranh giới rõ ràng với ma túy; nếu vi phạm, họ không chỉ chịu trách nhiệm pháp lý mà còn đánh mất hình ảnh, uy tín và ảnh hưởng tiêu cực đến công chúng.",
+    "expected_context": "article_04.md; article_07.md; article_08.md"
+  },
+  {
+    "question": "Vì sao corpus bài báo phù hợp để đánh giá RAG về chủ đề nghệ sĩ liên quan đến ma túy?",
+    "expected_answer": "Corpus bài báo phù hợp vì bao gồm nhiều trường hợp người nổi tiếng, nghệ sĩ, ca sĩ, diễn viên hoặc nhà thiết kế được nhắc đến trong các vụ việc liên quan đến ma túy, đồng thời có cả góc nhìn pháp lý và xã hội.",
+    "expected_context": "article_01.md đến article_08.md"
+  },
+  {
+    "question": "Khi hỏi về một cá nhân trong bài báo, hệ thống RAG cần phân biệt những trạng thái pháp lý nào?",
+    "expected_answer": "Hệ thống cần phân biệt các trạng thái như bị điều tra, bị khởi tố, bị bắt tạm giam, bị truy tố và bị tuyên án; không nên tự động gộp các trạng thái này thành một.",
+    "expected_context": "Các bài báo article_01.md đến article_08.md về người nổi tiếng liên quan đến ma túy"
+  },
+  {
+    "question": "Nếu context chỉ nói một người bị khởi tố, hệ thống có nên trả lời rằng người đó bị kết án không?",
+    "expected_answer": "Không. Nếu context chỉ nói một người bị khởi tố thì hệ thống chỉ nên trả lời là bị khởi tố; không được suy đoán thành bị kết án nếu không có evidence trong nguồn hiện có.",
+    "expected_context": "Nguyên tắc faithfulness trong evaluation RAG; các bài báo pháp lý trong corpus"
   }
 ]
